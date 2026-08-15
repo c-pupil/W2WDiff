@@ -79,8 +79,8 @@ This project is built on [ResShift](https://github.com/zsyOAOA/ResShift). We tha
 
 ## Contact
 
-For questions, please contact zason_zyl at 163.com.
+Feel free to contact us at **zason_zyl[AT]163.com** for any questions or collaborations!
 
 ## License
 
-This project follows the [NTU S-Lab License 1.0](LICENSE).
+This project is licensed under the Pi-Lab License 1.0 - see the [LICENSE](LICENSE) file for details.
