@@ -19,7 +19,15 @@ The original machine also has an environment named `resshift`; `resshift2` is in
 
 ## Pretrained models
 
-Download both files from the [W2WDiff Google Drive folder](https://drive.google.com/drive/folders/17N__82LpPlOPn8xiLw2No9Avbq63HosD) and place them in `weights/`:
+Download all ten parts from the public [W2WDiff Google Drive folder](https://drive.google.com/open?id=17N__82LpPlOPn8xiLw2No9Avbq63HosD). The Drive API quota did not permit a reliable single-file upload, so each checkpoint is split into five lossless parts. Reassemble them in `weights/`:
+
+```bash
+mkdir -p weights
+cat /path/to/downloads/ema_model_130000.pth.part-* > weights/ema_model_130000.pth
+cat /path/to/downloads/w2wdiff_vae.ckpt.part-* > weights/w2wdiff_vae.ckpt
+```
+
+The resulting layout is:
 
 ```text
 weights/
