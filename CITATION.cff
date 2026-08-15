@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+title: "W2WDiff: Generalizing Underwater Diffusion Model via Unsupervised Underwater Conversion"
+message: "If you use this software, please cite the paper below."
+type: software
+authors:
+  - family-names: Zhang
+    given-names: Yuanlin
+  - family-names: Yuan
+    given-names: Jieyu
+  - family-names: Chen
+    given-names: Xiao
+  - family-names: Tang
+    given-names: Xiongxin
+  - family-names: Chen
+    given-names: Qiao
+  - family-names: Wang
+    given-names: Yiquan
+  - family-names: Li
+    given-names: Chongyi
+preferred-citation:
+  type: article
+  title: "W2WDiff: Generalizing Underwater Diffusion Model via Unsupervised Underwater Conversion"
+  authors:
+    - family-names: Zhang
+      given-names: Yuanlin
+    - family-names: Yuan
+      given-names: Jieyu
+    - family-names: Chen
+      given-names: Xiao
+    - family-names: Tang
+      given-names: Xiongxin
+    - family-names: Chen
+      given-names: Qiao
+    - family-names: Wang
+      given-names: Yiquan
+    - family-names: Li
+      given-names: Chongyi
+  journal: IEEE Transactions on Geoscience and Remote Sensing
+  year: 2025
+  doi: 10.1109/TGRS.2025.3629979

@@ -1,0 +1,59 @@
+model:
+  target: models.unet.UNetModelSwin
+  params:
+    image_size: 64
+    in_channels: 3
+    model_channels: 160
+    out_channels: 3
+    attention_resolutions: [64, 32, 16, 8]
+    dropout: 0
+    channel_mult: [1, 2, 2, 4]
+    num_res_blocks: [2, 2, 2, 2]
+    conv_resample: true
+    dims: 2
+    use_fp16: false
+    num_head_channels: 32
+    use_scale_shift_norm: true
+    resblock_updown: false
+    swin_depth: 2
+    swin_embed_dim: 192
+    window_size: 8
+    mlp_ratio: 4
+    cond_lq: true
+    lq_size: 256
+
+diffusion:
+  target: models.script_util.create_gaussian_diffusion
+  params:
+    sf: 1
+    schedule_name: exponential
+    schedule_kwargs:
+      power: 0.3
+    etas_end: 0.99
+    steps: 15
+    min_noise_level: 0.2
+    kappa: 2
+    weighted_mse: false
+    predict_type: xstart
+    timestep_respacing: null
+    scale_factor: 1.0
+    normalize_input: true
+    latent_flag: true
+
+autoencoder:
+  target: ldm.models.autoencoder_inference.AutoencoderKLResi
+  params:
+    embed_dim: 3
+    fusion_w: 1.0
+    ddconfig:
+      double_z: true
+      z_channels: 3
+      resolution: 256
+      in_channels: 3
+      out_ch: 3
+      ch: 128
+      ch_mult: [1, 2, 4]
+      num_res_blocks: 2
+      attn_resolutions: []
+      dropout: 0.0
+      padding_mode: zeros
