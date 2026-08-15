@@ -30,13 +30,12 @@ def parse_args():
 def main():
     args = parse_args()
     config = OmegaConf.load(ROOT / "configs" / "uie.yaml")
-    scale_multiplier = 4 // args.scale
-    chop_size = args.chop_size * scale_multiplier
+    chop_size = args.chop_size
     if args.chop_stride < 0:
         overlap = {512: 64, 256: 32, 64: 16}[args.chop_size]
-        chop_stride = (args.chop_size - overlap) * scale_multiplier
+        chop_stride = args.chop_size - overlap
     else:
-        chop_stride = args.chop_stride * scale_multiplier
+        chop_stride = args.chop_stride
     sampler = W2WDiffSampler(
         config,
         checkpoint=args.checkpoint,

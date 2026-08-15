@@ -15,7 +15,7 @@ conda activate w2wdiff
 
 Download the pretrained models from [Google Drive](https://drive.google.com/open?id=17N__82LpPlOPn8xiLw2No9Avbq63HosD).
 
-The checkpoints are provided in split parts. Merge them before inference:
+The release contains the W2WDiff diffusion checkpoint and our fine-tuned VAE checkpoint. They are provided in split parts and should be merged before inference:
 
 ```bash
 mkdir -p weights
@@ -33,13 +33,35 @@ weights/
 
 ## Inference
 
+`inference.py` accepts either a single image or a directory. For a directory, all supported images are processed in filename order and saved as PNG files in the output directory.
+
+```text
+input/
+├── image_1.jpg
+├── image_2.png
+└── ...
+```
+
+Run W2WDiff with:
+
 ```bash
-CUDA_VISIBLE_DEVICES=0 python inference_cfm.py \
+CUDA_VISIBLE_DEVICES=0 python inference.py \
   -i /path/to/input \
   -o /path/to/output \
   --task uie \
-  --scale 1
+  --scale 1 \
+  --seed 12345
 ```
+
+The enhanced images will be written to `/path/to/output` using the input filenames. The default checkpoint paths are `weights/ema_model_130000.pth` and `weights/w2wdiff_vae.ckpt`.
+
+Useful options:
+
+- `--seed`: random seed; default is `12345`.
+- `--chop-size`: inference patch size; reduce it if GPU memory is limited.
+- `--checkpoint` and `--vae-checkpoint`: paths to custom diffusion and fine-tuned VAE checkpoints.
+
+For reproducible inference, keep the input images, checkpoint files, software environment, command options, and seed unchanged. The default seed is `12345`.
 
 ## Citation
 

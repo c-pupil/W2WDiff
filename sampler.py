@@ -40,6 +40,8 @@ class W2WDiffSampler:
         np.random.seed(self.seed)
         torch.manual_seed(self.seed)
         torch.cuda.manual_seed_all(self.seed)
+        torch.backends.cudnn.benchmark = False
+        torch.backends.cudnn.deterministic = True
 
     def _sample(self, image):
         original_height, original_width = image.shape[-2:]
