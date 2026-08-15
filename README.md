@@ -61,8 +61,6 @@ Useful options:
 - `--chop-size`: inference patch size; reduce it if GPU memory is limited.
 - `--checkpoint` and `--vae-checkpoint`: paths to custom diffusion and fine-tuned VAE checkpoints.
 
-For reproducible inference, keep the input images, checkpoint files, software environment, command options, and seed unchanged. The default seed is `12345`.
-
 ## Citation
 
 ```bibtex
@@ -78,6 +76,10 @@ For reproducible inference, keep the input images, checkpoint files, software en
 ## Acknowledgements
 
 This project is built on [ResShift](https://github.com/zsyOAOA/ResShift). We thank the authors for their work.
+
+## Contact
+
+For questions, please contact zason_zyl at 163.com.
 
 ## License
 
